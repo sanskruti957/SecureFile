@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Encrypt File - SecureFile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🔒 Encrypt File</h1>
+
+        <p class="subtitle">
+            Protect your file with a secure password
+        </p>
+
+        <form action="/encrypt" method="POST" enctype="multipart/form-data">
+
+            <label>Select File</label>
+
+            <input type="file" name="file" required>
+
+            <label>Enter Password</label>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter encryption password"
+                   required>
+
+            <button type="submit" class="btn">
+                🔒 Encrypt & Download
+            </button>
+
+        </form>
+
+        <a href="/" class="back">
+            ← Back to Home
+        </a>
+
+    </div>
