@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +21,10 @@
         <p class="subtitle">
             Restore your encrypted file using the correct password
         </p>
+
+        {% if message %}
+            <p class="error">{{ message }}</p>
+        {% endif %}
 
         <form action="/decrypt"
               method="POST"
@@ -45,10 +49,6 @@
 
         </form>
 
-        {% if message %}
-            <p class="error">{{ message }}</p>
-        {% endif %}
-
         <a href="/" class="back">
             ← Back to Home
         </a>
@@ -58,4 +58,3 @@
 </body>
 
 </html>
-```
