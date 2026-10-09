@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,10 @@
         <p class="subtitle">
             Protect your file with a secure password
         </p>
+
+        {% if message %}
+        <p class="error">{{ message }}</p>
+        {% endif %}
 
         <form action="/encrypt" method="POST" enctype="multipart/form-data">
 
@@ -44,3 +49,6 @@
         </a>
 
     </div>
+
+</body>
+</html>
