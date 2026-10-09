@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | SecureFile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="auth-page">
+
+    <main class="auth-card">
+
+        <a href="{{ url_for('home') }}" class="brand">
+            <span class="brand-icon">🔐</span>
+            <span>Secure<span class="brand-highlight">File</span></span>
+        </a>
+
+        <div class="welcome-icon">✦</div>
+
+        <h1>Create your safe space</h1>
+
+        <p class="auth-subtitle">
+            Your files deserve privacy.
+            <br>
+            Create your account and get started.
+        </p>
+
+        {% if message %}
+        <div class="error-message">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('register') }}">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Choose a username"
+                    minlength="3"
+                    maxlength="30"
+                    autocomplete="username"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="At least 8 characters"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirm_password"
+                    name="confirm_password"
+                    placeholder="Enter your password again"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required>
+            </div>
+
+            <button type="submit" class="auth-button">
+                Create account <span>→</span>
+            </button>
+
+        </form>
+
+        <p class="register-text" style="margin-top: 22px;">
+            Already have an account?
+            <a href="{{ url_for('login') }}">Sign in</a>
+        </p>
+
+        <div class="security-note">
+            🛡️ Your password is stored as a secure hash.
+        </div>
+
+        <a href="{{ url_for('home') }}" class="back-home">
+            ← Back to home
+        </a>
+
+    </main>
+
+    <footer class="auth-footer">
+        Made with care for your digital privacy · SecureFile
+    </footer>
+
+</body>
+</html>

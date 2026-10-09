@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | SecureFile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="auth-page">
+
+    <div class="auth-background"></div>
+
+    <main class="auth-card">
+
+        <a href="{{ url_for('home') }}" class="brand">
+            <span class="brand-icon">🔐</span>
+            <span>Secure<span class="brand-highlight">File</span></span>
+        </a>
+
+        <div class="welcome-icon">✦</div>
+
+        <h1>Welcome back!</h1>
+
+        <p class="auth-subtitle">
+            Your files, your privacy, your control.
+            <br>
+            Let's keep your digital world safe.
+        </p>
+
+        {% if registered %}
+        <div class="success-message">
+            ✨ Account created successfully! Please log in.
+        </div>
+        {% endif %}
+
+        {% if message %}
+        <div class="error-message">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+
+            <div class="form-group">
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
+                    autocomplete="username"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required>
+            </div>
+
+            <button type="submit" class="auth-button">
+                Sign in securely <span>→</span>
+            </button>
+
+        </form>
+
+        <div class="auth-divider">
+            <span>YOUR PRIVACY MATTERS</span>
+        </div>
+
+        <p class="register-text">
+            New to SecureFile?
+            <a href="{{ url_for('register') }}">Create an account</a>
+        </p>
+
+        <div class="security-note">
+            🛡️ Designed to keep your files private.
+        </div>
+
+        <a href="{{ url_for('home') }}" class="back-home">
+            ← Back to home
+        </a>
+
+    </main>
+
+    <footer class="auth-footer">
+        Made with care for your digital privacy · SecureFile
+    </footer>
+
+</body>
+</html>
